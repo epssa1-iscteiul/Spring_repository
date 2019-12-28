@@ -2,7 +2,6 @@ package com.ederminio.soares;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface MyRepository extends CrudRepository<Person, Integer> 
-{
+public interface ContactRepository extends CrudRepository<Contact, Integer>{
 
 }
