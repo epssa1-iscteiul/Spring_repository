@@ -37,6 +37,18 @@ public class PersonResource
 	{
 		return (List<Contact>) contacts.findAll();
 	}
+	
+	@RequestMapping(value = "contact", method = RequestMethod.POST)
+	public String AddOrUpadateContact(@RequestBody Contact contact)
+	{
+		System.out.println(contact);
+		if(!contacts.findById(contact.getId()).isPresent()) {
+			contacts.save(contact); 
+			return "contact inserted";
+		}
+		
+		return "Contact with same id already exist";
+	}
 
 	@RequestMapping(value = "person/{id}", method = RequestMethod.GET)
 	public Optional<Person> getPerson( @PathVariable int id)
